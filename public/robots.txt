@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://audiophile-e-commerce-mq6qrawm2-amir-taherians-projects.vercel.app/
+
+# Sitemaps
+Sitemap: https://audiophile-e-commerce-mq6qrawm2-amir-taherians-projects.vercel.app/sitemap.xml
