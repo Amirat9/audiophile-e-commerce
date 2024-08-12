@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Manrope } from 'next/font/google';
 import '../../globals.css';
 import CategoryHeader from '@/components/oraganisms/CategoryHeader';
@@ -23,6 +24,7 @@ export default function RootLayout({
         <CategoryHeader />
         {children}
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );

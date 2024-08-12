@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Manrope } from 'next/font/google';
 import '../../globals.css';
 import SecondaryHeader from '@/components/oraganisms/SecondaryHeader';
@@ -20,9 +21,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={manrope.className}>
-          <SecondaryHeader />
-          {children}
-          <Footer />
+        <SecondaryHeader />
+        {children}
+        <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );
