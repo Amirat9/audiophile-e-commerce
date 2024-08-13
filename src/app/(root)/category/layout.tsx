@@ -1,11 +1,9 @@
 import type { Metadata } from 'next';
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Manrope } from 'next/font/google';
 import '../../globals.css';
 import CategoryHeader from '@/components/oraganisms/CategoryHeader';
 import Footer from '@/components/oraganisms/Footer';
+import ModalWrapper from '@/components/oraganisms/ModalWrapper';
 
-const manrope = Manrope({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Audiophile | Premium Speakers, Headphones & Earphones',
@@ -19,13 +17,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body className={manrope.className}>
-        <CategoryHeader />
-        {children}
-        <Footer />
-        <SpeedInsights />
-      </body>
-    </html>
+    <>
+      <CategoryHeader />
+      <ModalWrapper>{children}</ModalWrapper>
+      <Footer />
+    </>
   );
 }

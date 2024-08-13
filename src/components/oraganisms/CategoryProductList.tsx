@@ -8,7 +8,7 @@ type Props = {
 
 const CategoryProductMenu = ({ products }: Props) => {
   return (
-    <section className='flex flex-col gap-[120xp] lg:gap-[160px]'>
+    <section className='flex flex-col gap-[120px] lg:gap-[160px]'>
       {products.reverse().map((product, index) => (
         <CategoryProduct
           key={index}

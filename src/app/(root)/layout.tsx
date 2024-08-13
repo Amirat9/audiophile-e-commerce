@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
-import '../../globals.css';
-import SecondaryHeader from '@/components/oraganisms/SecondaryHeader';
-import Footer from '@/components/oraganisms/Footer';
-import ModalWrapper from '@/components/oraganisms/ModalWrapper';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Manrope } from 'next/font/google';
+import '../globals.css';
+import Providers from '@/providers/Providers';
+
+const manrope = Manrope({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Audiophile | Premium Speakers, Headphones & Earphones',
@@ -16,10 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <SecondaryHeader />
-      <ModalWrapper>{children}</ModalWrapper>
-      <Footer />
-    </>
+    <html lang='en'>
+      <body className={manrope.className}>
+        <Providers>{children}</Providers>
+        <SpeedInsights />
+      </body>
+    </html>
   );
 }

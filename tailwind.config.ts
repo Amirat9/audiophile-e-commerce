@@ -81,6 +81,12 @@ const config = {
         'hero-product-mobile': "url('/assets/home/mobile/image-header.jpg')",
         'hero-product-tablet': "url('/assets/home/tablet/image-header.jpg')",
         'hero-product-desktop': "url('/assets/home/desktop/image-hero.jpg')",
+        'zx7-mobile': "url('/assets/home/mobile/image-speaker-zx7.jpg')",
+        'zx7-tablet': "url('/assets/home/tablet/image-speaker-zx7.jpg')",
+        'zx7-desktop': "url('/assets/home/desktop/image-speaker-zx7.jpg')",
+        'yx1-mobile': "url('/assets/home/mobile/image-earphones-yx1.jpg')",
+        'yx1-tablet': "url('/assets/home/tablet/image-earphones-yx1.jpg')",
+        'yx1-desktop': "url('/assets/home/desktop/image-earphones-yx1.jpg')",
       },
       screens: {
         lg: '1100px',

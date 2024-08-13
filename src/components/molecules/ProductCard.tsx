@@ -10,9 +10,17 @@ type Props = {
   isNew: boolean;
   description: string;
   price: number;
+  slug: string;
 };
 
-const ProductCard = ({ image, name, isNew, description, price }: Props) => {
+const ProductCard = ({
+  image,
+  name,
+  isNew,
+  description,
+  price,
+  slug,
+}: Props) => {
   const fromattedPrice = dollarAmountFormatter(price);
 
   return (
@@ -43,7 +51,11 @@ const ProductCard = ({ image, name, isNew, description, price }: Props) => {
         <h3 className='heading-base mb-6 md:mb-8 lg:pr-12'>{name}</h3>
         <p className='body-text opacity-50 mb-6 md:mb-8'>{description}</p>
         <p className='heading-xs mb-8'>{fromattedPrice}</p>
-        <ProductQuantity />
+        <ProductQuantity
+          slug={slug}
+          name={name}
+          price={price}
+        />
       </div>
     </section>
   );

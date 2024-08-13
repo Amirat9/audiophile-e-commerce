@@ -12,7 +12,7 @@ const HeroProductContent = () => {
         for the passionate music enthusiast.
       </p>
       <Button>
-        <Link href={'/'}>see product</Link>
+        <Link href={'/product-detail/xx99-mark-two-headphones'}>see product</Link>
       </Button>
     </div>
   );

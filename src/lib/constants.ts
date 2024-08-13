@@ -64,3 +64,21 @@ export const bestGearSectionProps = {
     desktop: desktopBestGear.src,
   },
 };
+
+export const featuredProducts = {
+  zx9Speaker: {
+    mobile: '/assets/home/mobile/image-speaker-zx9.png',
+    tablet: '/assets/home/tablet/image-speaker-zx9.png',
+    desktop: '/assets/home/desktop/image-speaker-zx9.png',
+  },
+  zx7Speaker: {
+    mobile: '/assets/home/mobile/image-speaker-zx7.jpg',
+    tablet: '/assets/home/tablet/image-speaker-zx7.jpg',
+    desktop: '/assets/home/desktop/image-speaker-zx7.jpg',
+  },
+  yx1Earphones: {
+    mobile: '/assets/home/mobile/image-earphones-yx1.jpg',
+    tablet: '/assets/home/tablet/image-earphones-yx1.jpg',
+    desktop: '/assets/home/desktop/image-earphones-yx1.jpg',
+  },
+};

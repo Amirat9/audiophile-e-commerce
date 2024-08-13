@@ -1,3 +1,4 @@
+import FeaturedProducts from '@/components/molecules/FeaturedProducts';
 import BestGear from '@/components/oraganisms/BestGear';
 import CategoryMenu from '@/components/oraganisms/CategoryMenu';
 import React from 'react';
@@ -7,6 +8,7 @@ const HomePage = () => {
     <main>
       <div className='container flex flex-col gap-[120px] pt-[92px] md:pt-[148px] lg:pt-[200px] pb-[120px] md:pb-[96px] lg:pb-[200px] '>
         <CategoryMenu />
+        <FeaturedProducts />
         <BestGear />
       </div>
     </main>
