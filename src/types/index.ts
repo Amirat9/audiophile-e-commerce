@@ -32,6 +32,7 @@ export type Product = {
   price: number;
   description: string;
   features: string;
+  priceId: string;
   includes: IncludedItem[];
   gallery: Gallery;
   others: OtherProduct[];

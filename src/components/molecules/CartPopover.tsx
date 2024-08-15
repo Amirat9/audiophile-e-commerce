@@ -6,8 +6,10 @@ import { useCart } from '@/context/CartContext';
 import { cn } from '@/lib/utils';
 import { useModal } from '@/context/ModalContext';
 import { dollarAmountFormatter } from '@/lib/formatter';
+import { useRouter } from 'next/navigation';
 
 const CartPopover = () => {
+  const router = useRouter();
   const { isCartOpen, cartTrigger, clearCart, cartItems } = useCart();
   const { isModalOpen, modalTrigger } = useModal();
   const popoverRef = useRef<HTMLDivElement>(null);
@@ -32,6 +34,12 @@ const CartPopover = () => {
     }
   };
 
+  const handleCheckout = () => {
+    modalTrigger();
+    cartTrigger();
+    router.push('/checkout');
+  };
+
   useEffect(() => {
     if (isModalOpen && isCartOpen) {
       document.addEventListener('mousedown', handleClickOutside);
@@ -53,7 +61,7 @@ const CartPopover = () => {
       <div className='flex items-center justify-between'>
         <h4 className='heading-xs'>{`cart (${productAmount})`}</h4>
         <div
-          className='body-text opacity-50 underline capitalize'
+          className='body-text opacity-50 underline capitalize cursor-pointer'
           onClick={clearCart}>
           remove all
         </div>
@@ -80,7 +88,7 @@ const CartPopover = () => {
         <p className='text-lg font-bold'>{dollarAmountFormatter(subtotal)}</p>
       </div>
       {/* checkout button */}
-      <Button>checkout</Button>
+      <Button onClick={handleCheckout}>checkout</Button>
     </div>
   );
 };

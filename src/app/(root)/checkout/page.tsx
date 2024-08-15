@@ -1,15 +1,29 @@
 'use client';
 import React from 'react';
-import { loadStripe } from '@stripe/stripe-js';
+import { useCart } from '@/context/CartContext'; // Adjust the import path as needed
 
-// Make sure to call `loadStripe` outside of a component’s render to avoid
-// recreating the `Stripe` object on every render.
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
-);
-export default function PreviewPage() {
+const Checkout = () => {
+  const { cartItems } = useCart();
+  console.log(cartItems);
+  const handleCheckout = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    const response = await fetch('/api/checkout_sessions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ cartItems }),
+    });
+
+    const session = await response.json();
+
+    if (session.url) {
+      window.location.href = session.url; // Redirect to Stripe Checkout
+    }
+  };
+
   React.useEffect(() => {
-    // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
     if (query.get('success')) {
       console.log('Order placed! You will receive an email confirmation.');
@@ -23,43 +37,47 @@ export default function PreviewPage() {
   }, []);
 
   return (
-    <form
-      action='/api/checkout_sessions'
-      method='POST'>
-      <section>
-        <button
-          type='submit'
-          role='link'>
-          Checkout
-        </button>
-      </section>
-      <style jsx>
-        {`
-          section {
-            background: #ffffff;
-            display: flex;
-            flex-direction: column;
-            width: 400px;
-            height: 112px;
-            border-radius: 6px;
-            justify-content: space-between;
-          }
-          button {
-            height: 36px;
-            background: #556cd6;
-            border-radius: 4px;
-            color: white;
-            border: 0;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
-          }
-          button:hover {
-            opacity: 0.8;
-          }
-        `}
-      </style>
-    </form>
+    <main className='bg-card'>
+      <div className='container pb-[97px] pt-[65px]'>
+        <form onSubmit={handleCheckout}>
+          <section>
+            <button
+              type='submit'
+              role='link'>
+              Checkout
+            </button>
+          </section>
+          <style jsx>
+            {`
+              section {
+                background: #ffffff;
+                display: flex;
+                flex-direction: column;
+                width: 400px;
+                height: 112px;
+                border-radius: 6px;
+                justify-content: space-between;
+              }
+              button {
+                height: 36px;
+                background: #556cd6;
+                border-radius: 4px;
+                color: white;
+                border: 0;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+              }
+              button:hover {
+                opacity: 0.8;
+              }
+            `}
+          </style>
+        </form>
+      </div>
+    </main>
   );
-}
+};
+
+export default Checkout;

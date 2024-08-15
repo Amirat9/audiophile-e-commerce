@@ -1,7 +1,10 @@
+'use client';
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import arrowRightIcon from '@/assets/shared/desktop/icon-arrow-right.svg';
+import { useModal } from '@/context/ModalContext';
+import { useMenu } from '@/context/MenuContext';
 
 type Props = {
   name: string;
@@ -10,6 +13,14 @@ type Props = {
 };
 
 function CategoryMenuItem({ name, href, image }: Props) {
+  const { isModalOpen, modalTrigger } = useModal();
+  const { isMenuOpen, menuTrigger } = useMenu();
+  const handleClick = () => {
+    if (isMenuOpen && isModalOpen) {
+      modalTrigger();
+      menuTrigger();
+    }
+  };
   return (
     <div className='bg-card rounded-lg relative pt-[88px] pb-[22px] text-center w-full'>
       <Image
@@ -23,6 +34,7 @@ function CategoryMenuItem({ name, href, image }: Props) {
         {name}
       </h3>
       <Link
+        onClick={handleClick}
         href={href}
         className='cursor-pointer inline-flex items-center gap-3 group'>
         <span className='text-black font-bold opacity-50 uppercase text-[13px] tracking-[1px] group-hover:text-primary group-hover:opacity-100'>

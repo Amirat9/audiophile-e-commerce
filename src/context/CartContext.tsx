@@ -6,6 +6,7 @@ interface CartItem {
   slug: string;
   price: number;
   quantity: number;
+  priceId: string;
 }
 
 interface CartContextProps {

@@ -39,9 +39,11 @@ const FeaturedProducts = () => {
       </div>
       <div className='bg-zx7-mobile py-[101px] pl-6 rounded-lg bg-cover bg-no-repeat md:px-[60px] md:bg-zx7-tablet lg:bg-zx7-desktop'>
         <h3 className='text-black heading-base mb-8'>zx7 speaker</h3>
-        <Button className='bg-transparent text-black border border-black hover:bg-black hover:text-white focus-within:bg-black focus-within:text-white active:bg-black active:text-white'>
-          <Link href={'/product-detail/zx7-speaker'}>see product</Link>
-        </Button>
+        <Link href={'/product-detail/zx7-speaker'}>
+          <Button className='bg-transparent text-black border border-black hover:bg-black hover:text-white focus-within:bg-black focus-within:text-white active:bg-black active:text-white'>
+            see product
+          </Button>
+        </Link>
       </div>
       <div className='flex flex-col gap-6 md:flex-row'>
         <picture>
@@ -63,9 +65,11 @@ const FeaturedProducts = () => {
         </picture>
         <div className='bg-card py-10 px-6 rounded-lg md:px-10 md:py-[101px] md:w-[540px] lg:pl-[95px]'>
           <h3 className='heading-base text-black mb-8'>yx1 earphones</h3>
-          <Button className='bg-transparent text-black border border-black hover:bg-black hover:text-white focus-within:bg-black focus-within:text-white active:bg-black active:text-white'>
-            <Link href={'/product-detail/yx1-earphone'}>see product</Link>
-          </Button>
+          <Link href={'/product-detail/yx1-earphone'}>
+            <Button className='bg-transparent text-black border border-black hover:bg-black hover:text-white focus-within:bg-black focus-within:text-white active:bg-black active:text-white'>
+              see product
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

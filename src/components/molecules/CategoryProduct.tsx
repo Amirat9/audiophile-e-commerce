@@ -59,10 +59,12 @@ const CategoryProduct = ({
         <h3 className='heading-base px-12 md:heading-lg md:!mb-8 lg:px-0 lg:pr-12'>
           {name}
         </h3>
-        <p className='body-text opacity-50 md:!mb-6 lg:!mb-10'>{description}</p>
-        <Button className=''>
-          <Link href={`/product-detail/${slug}`}>see product</Link>
-        </Button>
+        <p className='body-text opacity-50 !mb-6 lg:!mb-10'>{description}</p>
+        <Link
+          href={`/product-detail/${slug}`}
+          className='w-full'>
+          <Button className=''>see product</Button>
+        </Link>
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ type Props = {
   description: string;
   price: number;
   slug: string;
+  priceId: string;
 };
 
 const ProductCard = ({
@@ -20,6 +21,7 @@ const ProductCard = ({
   description,
   price,
   slug,
+  priceId,
 }: Props) => {
   const fromattedPrice = dollarAmountFormatter(price);
 
@@ -48,13 +50,14 @@ const ProductCard = ({
             new product
           </p>
         )}
-        <h3 className='heading-base mb-6 md:mb-8 lg:pr-12'>{name}</h3>
+        <h1 className='heading-base mb-6 md:mb-8 lg:pr-12'>{name}</h1>
         <p className='body-text opacity-50 mb-6 md:mb-8'>{description}</p>
         <p className='heading-xs mb-8'>{fromattedPrice}</p>
         <ProductQuantity
           slug={slug}
           name={name}
           price={price}
+          priceId={priceId}
         />
       </div>
     </section>

@@ -7,11 +7,13 @@ type Props = {
   slug: string;
   name: string;
   price: number;
+  priceId: string;
 };
 
-const ProductQuantity = ({ slug, name, price }: Props) => {
+const ProductQuantity = ({ slug, name, price, priceId }: Props) => {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
-  const { addCartItem } = useCart(); // Destructure addCartItem from the cart context
+  const { addCartItem } = useCart(); // Destructure addCartItem from the cart contextec
+  
 
   // Function to handle quantity change
   const handleQuantityChange = (change: number) => {
@@ -27,6 +29,7 @@ const ProductQuantity = ({ slug, name, price }: Props) => {
       slug,
       name,
       price,
+      priceId,
       quantity: selectedQuantity,
     };
 

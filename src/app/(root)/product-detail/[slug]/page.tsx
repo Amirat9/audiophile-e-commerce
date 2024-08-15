@@ -13,8 +13,8 @@ const ProductDetailPage = async ({ params }: { params: { slug: string } }) => {
   const product: Product = await getProduct(params.slug);
   return (
     <main className='text-black'>
-      <div className='container relative flex flex-col gap-[88px] pt-4 pb-[120px] md:pt-8 lg:pb-[160px] lg:pt-[80px]'>
-        
+      <div className='container relative flex flex-col gap-[88px] pt-[64px] pb-[120px] md:pt-[82px] lg:pb-[160px] lg:pt-[160px]'>
+        <GoBackNav />
         <ProductCard
           name={product.name}
           image={product.image}
@@ -22,6 +22,7 @@ const ProductDetailPage = async ({ params }: { params: { slug: string } }) => {
           isNew={product.new}
           price={product.price}
           slug={product.slug}
+          priceId={product.priceId}
         />
         <ProductDetails
           features={product.features}

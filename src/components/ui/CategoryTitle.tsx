@@ -7,9 +7,9 @@ const CategoryTitle = () => {
   const category = pathname.split('/')[2];
 
   return (
-    <h2 className='py-8 text-center heading-base md:py-[105px] md:heading-lg lg:py-[98px]'>
+    <h1 className='py-8 text-center heading-base md:py-[105px] md:heading-lg lg:py-[98px]'>
       {category}
-    </h2>
+    </h1>
   );
 };
 

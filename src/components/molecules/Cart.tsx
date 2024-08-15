@@ -19,6 +19,7 @@ const Cart = () => {
       cartTrigger();
       modalTrigger();
     }
+    
   };
 
   return (
